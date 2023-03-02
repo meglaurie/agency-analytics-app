@@ -16,18 +16,14 @@ function App() {
   const handleClick = (image) => {
     setSelectedImage(image);
     setLiked(image.favorited);
-    console.log(image.favorited);
   }
   
   const handleLike = (favorited) => {
-    // favorited ? setLiked(true) : setLiked(false);
     setLiked(!liked);
-    console.log(favorited);
-    console.log(liked);
   }
 
   const deleteImage = (id) => {
-    const updatedImages = imageData.filter(image => image.id !== id);
+    const updatedImages = imageData?.filter(image => image.id !== id);
     setImageData(updatedImages);
   }
 
@@ -37,7 +33,6 @@ function App() {
   ];
 
   useEffect(() => {
-    console.log("call API");
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => setImageData(data))
