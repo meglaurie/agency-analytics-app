@@ -1,0 +1,5 @@
+.textContainer{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.5px solid #64748b;
+}

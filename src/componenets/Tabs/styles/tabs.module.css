@@ -1,0 +1,29 @@
+.tabContainer{
+    margin-bottom: 25px;
+}
+
+.flexContainer{
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    padding: 0px;
+}
+
+.tab{
+    padding: 20px;
+    width: fit-content;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #64748b;
+}
+
+.active{
+    border-bottom: #4f45e4 3px solid;
+    color: #4f45e4;
+}
+
+hr{
+    margin-top: -18px;
+    color: #cbd5e1;
+}
+
