@@ -25,6 +25,11 @@ function App() {
   const deleteImage = (id) => {
     const updatedImages = imageData?.filter(image => image.id !== id);
     setImageData(updatedImages);
+    setSelectedImage(null);
+  }
+
+  const close = () => {
+    setSelectedImage(null);
   }
 
   const tabContent = [
@@ -43,12 +48,12 @@ function App() {
   return (
     <div className="App">
       <div style={{ display: 'flex' }}>
-      <div style={{ width: '68%', padding: '20px'}}>
+      <div className='mainContainer' style={{ width: selectedImage ? "68%" : "100%", backgroundColor: "#f7fafc", transition: "width 0.5s"}}>
         <h1>Photos</h1>
         <Tabs tabLabels={tabLabels} tabContent={tabContent}/>
       </div>
-      <div style={{ width: '25%' }}>
-        {selectedImage ? <Sidebar selectedImage={selectedImage} deleteImage={deleteImage} handleLike={handleLike} liked={liked}/> : ''}
+      <div >
+        {selectedImage ? <Sidebar selectedImage={selectedImage} deleteImage={deleteImage} handleLike={handleLike} close={close} liked={liked}/> : " "}
       </div>
       </div>     
     </div>

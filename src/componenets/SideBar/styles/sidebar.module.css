@@ -3,6 +3,7 @@
     height: 100%;
     width: 25%;
     padding: 20px;
+    padding-top: 0px;
     position: fixed;
     right: 0;
     top:0;
@@ -28,6 +29,7 @@
 .imageText{
     display: flex;
     justify-content: space-between;
+    
 }
 
 .title{
@@ -49,6 +51,13 @@
     margin-top: 20px;
 }
 
+.closeBtn{
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #64748b;
+}
+
 @keyframes slidein {
     from {
       margin-right: -25%;
@@ -56,5 +65,19 @@
   
     to {
       margin-right: 0%;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .container{
+      width: 35%;
+
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    .container{
+      width: 95%;
+
     }
   }
