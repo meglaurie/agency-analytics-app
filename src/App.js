@@ -18,7 +18,7 @@ function App() {
     setLiked(image.favorited);
   }
   
-  const handleLike = (favorited) => {
+  const handleLike = () => {
     setLiked(!liked);
   }
 
