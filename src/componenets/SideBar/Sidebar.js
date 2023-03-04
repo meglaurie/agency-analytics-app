@@ -35,7 +35,7 @@ function Sidebar({selectedImage, deleteImage, handleLike, close, liked}) {
           <TextFormatting label={'Dimensions'} data={`${selectedImage.dimensions.height} X ${selectedImage.dimensions.width}`}/> 
           <TextFormatting label={'Resolution'} data={`${selectedImage.resolution.height} X ${selectedImage.resolution.width}`}/> 
         </div>
-        <h2 className={styles.title} >Description</h2>
+        <h2 className={styles.desc}>Description</h2>
         <p>{selectedImage.description}</p>
         <button onClick={() => deleteImage(selectedImage.id)} className={styles.button}>Delete</button>
       </div>

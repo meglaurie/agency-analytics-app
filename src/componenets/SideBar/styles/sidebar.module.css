@@ -39,6 +39,14 @@
     padding-top: 15px;
     margin: 0px;
     font-size: 18px;
+    border-bottom: 0.5px solid #64748b;
+}
+
+.desc{
+  font-weight: bold;
+    padding-top: 15px;
+    margin: 0px;
+    font-size: 18px;
 }
 
 .button{
