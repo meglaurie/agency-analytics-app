@@ -14,7 +14,6 @@ function App() {
   const recentDate =  imageData?.map(image => { return { ...image, createdAt: new Date(image.createdAt).toLocaleString()} }).sort((a, b) => b.createdAt - a.createdAt);
   const tabLabels = ['Recently Added', 'Favorited'];
 
-  console.log(favorites)
   const handleClick = (image) => {
     setSelectedImage(image);
     setLiked(image.favorited);
@@ -53,7 +52,12 @@ function App() {
   useEffect(() => {
     if (selectedImage) {
       if (liked) {
-        setFavorites(prevFavorites => [selectedImage, ...prevFavorites]);
+        setFavorites(prevFavorites => {
+          if (!prevFavorites.find(image => image.id === selectedImage.id)) {
+            return [selectedImage, ...prevFavorites];
+          }
+          return prevFavorites;
+        });
       } else {
         setFavorites(prevFavorites => prevFavorites.filter(fav => fav.id !== selectedImage.id));
       }
