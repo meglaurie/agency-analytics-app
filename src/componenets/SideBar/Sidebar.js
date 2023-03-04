@@ -27,7 +27,7 @@ function Sidebar({selectedImage, deleteImage, handleLike, close, liked}) {
             </div>
           </div>
         </div>
-        <p className={styles.title}>Information</p>
+        <h2 className={styles.title}>Information</h2>
         <div>
           <TextFormatting label={'Uploaded by'} data={selectedImage.uploadedBy}/>
           <TextFormatting label={'Created'} data={new Date(selectedImage.createdAt).toLocaleDateString('en-En',{ year: 'numeric', month: 'long', day: 'numeric' })}/> 
@@ -35,7 +35,7 @@ function Sidebar({selectedImage, deleteImage, handleLike, close, liked}) {
           <TextFormatting label={'Dimensions'} data={`${selectedImage.dimensions.height} X ${selectedImage.dimensions.width}`}/> 
           <TextFormatting label={'Resolution'} data={`${selectedImage.resolution.height} X ${selectedImage.resolution.width}`}/> 
         </div>
-        <p className={styles.title} >Description</p>
+        <h2 className={styles.title} >Description</h2>
         <p>{selectedImage.description}</p>
         <button onClick={() => deleteImage(selectedImage.id)} className={styles.button}>Delete</button>
       </div>

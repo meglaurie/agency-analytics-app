@@ -5,7 +5,7 @@ function TextFormatting({label, data}) {
 
     return (
         <div className={styles.textContainer}>
-            <p style={{color: '#64748b'}}>{label}</p>
+            <h3 style={{color: '#64748b', fontSize: '16px'}}>{label}</h3>
             <p>{data}</p>
         </div>
         
