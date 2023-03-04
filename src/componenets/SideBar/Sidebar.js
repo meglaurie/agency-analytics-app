@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import TextFormatting from "../TextFormatting/TextFormatting";
 import styles from './styles/sidebar.module.css'
 
@@ -16,10 +16,10 @@ function Sidebar({selectedImage, deleteImage, handleLike, close, liked}) {
           <button className={styles.closeBtn} onClick={() => close()}>&#215;</button>
         </div>
         <div className={styles.imageContainer}>
-          <img src={selectedImage.url} className={styles.image}></img>
+          <img data-testid="image" src={selectedImage.url} className={styles.image} alt={selectedImage.description}></img>
           <div className={styles.imageText}>
             <div>
-              <p style={{fontWeight: 'bold', marginBottom: '0px', maxWidth: "70%", overflow: "hidden", textOverflow: "ellipsis"}}>{selectedImage.filename}</p>
+              <p style={{fontWeight: 'bold', marginBottom: '0px', maxWidth: "200px", overflow: "hidden", textOverflow: "ellipsis"}}>{selectedImage.filename}</p>
               <p style={{marginTop: '5px', color: '#64748b'}}>{((selectedImage.sizeInBytes/1024)/1000).toFixed(2) + "MB"}</p>
             </div>
             <div onClick={() => handleLike()} className={styles.heartBtn}>

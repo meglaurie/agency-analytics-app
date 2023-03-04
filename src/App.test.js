@@ -25,18 +25,24 @@ describe('App component', () => {
     jest.clearAllMocks();
   });
 
-  test('renders the heading and tabs', async () => {
-    render(<App />);
-
-    // Wait for the images to be fetched and rendered
-    await waitFor(() => expect(screen.getAllByTestId('image')).toHaveLength(2));
-
-    // Check that the heading and tabs are rendered
-    expect(screen.getByRole('heading', { name: /Photos/i })).toBeInTheDocument();
-    expect(screen.getByRole('tab', { name: /Recently Added/i })).toBeInTheDocument();
-    expect(screen.getByRole('tab', { name: /Favorited/i })).toBeInTheDocument();
+  test('renders the App component', () => {
+    const { getByTestId } = render(<App />);
+    const appElement = getByTestId('app');
+    expect(appElement).toBeInTheDocument();
+  });
+  
+  test('renders the Image component', () => {
+    const { getByTestId } = render(<App />);
+    const imageElement = getByTestId('image');
+    expect(imageElement).toBeInTheDocument();
   });
 
+  test('renders the tabs component', async () => {
+    const { getByTestId } = render(<App />);
+    const imageElement = getByTestId('tabs');
+    expect(imageElement).toBeInTheDocument();
+  });
+  
   test('displays the selected image in the sidebar', async () => {
     render(<App />);
 

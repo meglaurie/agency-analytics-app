@@ -3,7 +3,7 @@ import styles from './styles/image.module.css';
 
 const Image = ({imageData, handleClick, selectedImage}) => {
   return (
-    <div className={styles.grid} >
+    <div data-testid="image" className={styles.grid} >
       {imageData ? (
         <>
         {imageData.map(image => (

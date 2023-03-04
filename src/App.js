@@ -8,11 +8,13 @@ import { apiUrl } from "./Api.js";
 function App() {
   const [imageData, setImageData] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-  const favorited = imageData && imageData.filter(image => image.favorited === true ? image : '' );
+  const [liked, setLiked] = useState(null);
+  const [favorites, setFavorites ] = useState([]);
+  const favorited = imageData?.filter(image => image.favorited === true ? image : '' );
   const recentDate =  imageData?.map(image => { return { ...image, createdAt: new Date(image.createdAt).toLocaleString()} }).sort((a, b) => b.createdAt - a.createdAt);
   const tabLabels = ['Recently Added', 'Favorited'];
-  const [liked, setLiked] = useState(null);
 
+  console.log(favorites)
   const handleClick = (image) => {
     setSelectedImage(image);
     setLiked(image.favorited);
@@ -34,7 +36,7 @@ function App() {
 
   const tabContent = [
     <Image imageData={recentDate} handleClick={handleClick} selectedImage={selectedImage}/>,
-    <Image imageData={favorited} handleClick={handleClick}/>,
+    <Image imageData={favorites} handleClick={handleClick}/>,
   ];
 
   useEffect(() => {
@@ -44,9 +46,23 @@ function App() {
       .catch(error => console.error(error));
   }, [apiUrl]);
 
+  useEffect(() => {
+    setFavorites(favorited);
+  }, [imageData]);
+
+  useEffect(() => {
+    if (selectedImage) {
+      if (liked) {
+        setFavorites(prevFavorites => [selectedImage, ...prevFavorites]);
+      } else {
+        setFavorites(prevFavorites => prevFavorites.filter(fav => fav.id !== selectedImage.id));
+      }
+    }
+  }, [liked, selectedImage]);
+
 
   return (
-    <div className="App">
+    <div data-testid="app" className="App">
       <div style={{ display: 'flex' }}>
       <div className='mainContainer' style={{ width: selectedImage ? "68%" : "100%", backgroundColor: "#f7fafc", transition: "width 0.5s"}}>
         <h1>Photos</h1>

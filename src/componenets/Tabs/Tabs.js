@@ -5,7 +5,7 @@ function Tabs({ tabLabels, tabContent }) {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
-      <div>
+      <div data-testid="tabs">
       <div className={styles.tabContainer}>
         <ul className={styles.flexContainer}>
           {tabLabels.map((label, index) => (

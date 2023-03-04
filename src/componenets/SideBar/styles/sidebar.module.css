@@ -15,6 +15,7 @@
 
 .imageContainer{
   padding: 0px;
+  width: 100%;
 }
 
 .image{
@@ -37,7 +38,6 @@
     padding-bottom: 15px;
     padding-top: 15px;
     margin: 0px;
-    border-bottom: .5px solid #64748b;
 }
 
 .button{
@@ -45,6 +45,7 @@
     background-color: #fff;
     padding: 10px;
     border: 0.5px solid #64748b;
+    margin-bottom: 50px;
 }
 
 .heartBtn{
@@ -71,13 +72,11 @@
   @media only screen and (max-width: 1000px) {
     .container{
       width: 35%;
-
     }
   }
 
   @media only screen and (max-width: 700px) {
     .container{
       width: 95%;
-
     }
   }
