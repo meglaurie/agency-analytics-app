@@ -11,12 +11,12 @@ function Sidebar({selectedImage, deleteImage, handleLike, close, liked}) {
   </svg>)}
 
     return (
-      <div className={styles.container}>
+      <div data-testid="sidebar" className={styles.container}>
         <div style={{textAlign: "right"}}>
           <button className={styles.closeBtn} onClick={() => close()}>&#215;</button>
         </div>
         <div className={styles.imageContainer}>
-          <img data-testid="image" src={selectedImage.url} className={styles.image} alt={selectedImage.description}></img>
+          <img data-testid="selectedImage" src={selectedImage.url} className={styles.image} alt={selectedImage.description}></img>
           <div className={styles.imageText}>
             <div>
               <p style={{fontWeight: 'bold', marginBottom: '0px', maxWidth: "200px", overflow: "hidden", textOverflow: "ellipsis"}}>{selectedImage.filename}</p>
